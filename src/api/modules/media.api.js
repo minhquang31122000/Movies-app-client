@@ -26,7 +26,6 @@ const mediaApi = {
       const response = await privateClient.get(
         mediaEndpoints.detail({ mediaType, mediaId })
       );
-
       return { response };
     } catch (error) {
       return { error };

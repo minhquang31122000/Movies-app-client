@@ -15,6 +15,9 @@ import AutoSwiper from "./AutoSwiper";
 import MediaItem from "./MediaItem";
 import ImageHeader from "./ImageHeader";
 import CircularRate from "./CircularRate";
+import CastSlide from "./CastSlide";
+import MediaVideosSlide from "./MediaVideosSlide";
+import NavigationSwiper from "./NavigationSwiper";
 
 export {
   GlobalLoading,
@@ -34,4 +37,7 @@ export {
   MediaItem,
   ImageHeader,
   CircularRate,
+  CastSlide,
+  MediaVideosSlide,
+  NavigationSwiper,
 };
