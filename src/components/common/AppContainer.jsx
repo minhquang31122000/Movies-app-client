@@ -14,17 +14,17 @@ const AppContainer = ({ header, children }) => {
               marginX: "auto",
               width: "100%",
               "&::before": {
-                content: "",
+                content: '""',
                 position: "absolute",
                 left: { xs: "20px", md: 0 },
-                top: "10-0%",
+                top: "100%",
                 height: "5px",
-                width: "100%",
+                width: "100px",
                 backgroundColor: "primary.main",
               },
             }}
           >
-            <Typography variant="h5" fontWeight="700">
+            <Typography variant="h5" fontWeight="700" textTransform="uppercase">
               {header}
             </Typography>
           </Box>

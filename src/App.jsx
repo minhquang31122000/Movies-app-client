@@ -8,6 +8,9 @@ import MainLayout from "layout/MainLayout";
 import THEME_CONFIGS from "configs/theme.configs";
 import ROUTES from "routes";
 import "react-toastify/dist/ReactToastify.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const App = () => {
   const { themeMode } = useSelector((state) => state.themeMode);

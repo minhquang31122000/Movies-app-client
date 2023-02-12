@@ -5,9 +5,10 @@ import { AuthModal, Footer, GlobalLoading, TopBar } from "components/common";
 import { useDispatch, useSelector } from "react-redux";
 import { setThemeMode } from "redux/features/themeModeSlice";
 import { THEME_MODE } from "configs/theme.configs";
-import { UserApi } from "api/modules";
-import { setUser } from "redux/features/userSlice";
+import { FavoriteApi, UserApi } from "api/modules";
+import { setListFavorites, setUser } from "redux/features/userSlice";
 import { AppConstants } from "const";
+import { toast } from "react-toastify";
 
 const MainLayout = () => {
   const dispatch = useDispatch();
@@ -16,18 +17,22 @@ const MainLayout = () => {
 
   const handleGetUserInfo = async () => {
     const { response, error } = await UserApi.getInfo();
-    console.log("response", response);
-    console.log("error", error);
 
     if (response) dispatch(setUser(response));
 
     if (error) dispatch(setUser(null));
   };
 
-  useEffect(() => {
-    if(window.localStorage.getItem(AppConstants.TOKEN_STORAGE)){
-      handleGetUserInfo();
+  const handleGetFavorites = async () => {
+    const { response, error } = await FavoriteApi.getList();
 
+    if (response) dispatch(setListFavorites(response));
+    if (error) toast.error(error.message);
+  };
+
+  useEffect(() => {
+    if (window.localStorage.getItem(AppConstants.TOKEN_STORAGE)) {
+      handleGetUserInfo();
     }
   }, [dispatch]);
 
@@ -41,6 +46,14 @@ const MainLayout = () => {
       )
     );
   }, [dispatch]);
+
+  useEffect(() => {
+    if (Boolean(user)) {
+      handleGetFavorites();
+    } else {
+      dispatch(setListFavorites([]));
+    }
+  }, [dispatch, user]);
 
   return (
     <>

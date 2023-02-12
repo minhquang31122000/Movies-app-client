@@ -10,6 +10,7 @@ import MENU_CONFIGS from "configs/menu.config";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { LoginOutlined as LoginOutlinedIcon } from "@mui/icons-material";
+import { setUser } from "redux/features/userSlice";
 
 const UserMenu = () => {
   const { user } = useSelector((state) => state.user);
@@ -39,6 +40,7 @@ const UserMenu = () => {
           >
             {MENU_CONFIGS.user.map((item, index) => (
               <ListItemButton
+                key={index}
                 LinkComponent={Link}
                 to={item.path}
                 onClick={() => setAnchorEl(null)}
@@ -56,7 +58,7 @@ const UserMenu = () => {
             ))}
             <ListItemButton
               sx={{ borderRadius: "10px" }}
-              onClick={() => dispatch(null)}
+              onClick={() => dispatch(setUser(null))}
             >
               <ListItemIcon>
                 <LoginOutlinedIcon />

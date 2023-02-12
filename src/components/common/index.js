@@ -9,6 +9,12 @@ import Sidebar from "./Sidebar";
 import AuthModal from "./AuthModal";
 import SigninForm from "./SigninForm";
 import SignupForm from "./SignupForm";
+import HeroSlide from "./HeroSlide";
+import MediaSlide from "./MediaSlide";
+import AutoSwiper from "./AutoSwiper";
+import MediaItem from "./MediaItem";
+import ImageHeader from "./ImageHeader";
+import CircularRate from "./CircularRate";
 
 export {
   GlobalLoading,
@@ -22,4 +28,10 @@ export {
   AuthModal,
   SigninForm,
   SignupForm,
+  HeroSlide,
+  MediaSlide,
+  AutoSwiper,
+  MediaItem,
+  ImageHeader,
+  CircularRate,
 };
