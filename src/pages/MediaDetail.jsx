@@ -12,10 +12,15 @@ import { FavoriteApi, MediaApi } from "api/modules";
 import { toast } from "react-toastify";
 import {
   AppContainer,
+  BackdropSlide,
   CastSlide,
   CircularRate,
   ImageHeader,
+  MediaReview,
+  MediaSlide,
   MediaVideosSlide,
+  PosterSlide,
+  RecommendSlide,
 } from "components/common";
 import tmdbConfigs from "api/configs/tmdb.configs";
 import { Box, Button, Chip, Divider, Stack, Typography } from "@mui/material";
@@ -226,10 +231,49 @@ const MediaDetail = () => {
         {/* Media videos */}
         <Box ref={videoRef} style={{ paddingTop: "2rem" }}>
           <AppContainer header="Videos">
-            <MediaVideosSlide videos={media.videos.splice(0, 5)} />
+            <MediaVideosSlide videos={[...media.videos].splice(0, 5)} />
           </AppContainer>
         </Box>
         {/* Media videos */}
+
+        {/* Media backdrop */}
+        {media.images.backdrops.length > 0 && (
+          <AppContainer header="backdrops">
+            <BackdropSlide backdrops={media.images.backdrops} />
+          </AppContainer>
+        )}
+        {/* Media backdrop */}
+
+        {/* Media posters */}
+        {media.images.posters.length > 0 && (
+          <AppContainer header="Posters">
+            <PosterSlide posters={media.images.posters} />
+          </AppContainer>
+        )}
+        {/* Media posters */}
+
+        {/* Media reviews */}
+        <MediaReview
+          reviews={media.reviews}
+          media={media}
+          mediaType={mediaType}
+        />
+        {/* Media reviews */}
+
+        {/* Media recommendation */}
+        <AppContainer header="You may also like">
+          {media.recommend.length > 0 && (
+            <RecommendSlide medias={media.recommend} mediaType={mediaType} />
+          )}
+          {media.recommend.length === 0 && (
+            <MediaSlide
+              mediaCategory={tmdbConfigs.mediaCategory.top_rated}
+              mediaType={mediaType}
+            />
+          )}
+        </AppContainer>
+
+        {/* Media recommendation */}
       </Box>
     </>
   ) : null;

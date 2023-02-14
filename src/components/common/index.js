@@ -18,6 +18,11 @@ import CircularRate from "./CircularRate";
 import CastSlide from "./CastSlide";
 import MediaVideosSlide from "./MediaVideosSlide";
 import NavigationSwiper from "./NavigationSwiper";
+import BackdropSlide from "./BackdropSlide";
+import PosterSlide from "./PosterSlide";
+import RecommendSlide from "./RecommendSlide";
+import MediaReview from "./MediaReview";
+import TextAvatar from "./TextAvatar";
 
 export {
   GlobalLoading,
@@ -40,4 +45,9 @@ export {
   CastSlide,
   MediaVideosSlide,
   NavigationSwiper,
+  BackdropSlide,
+  PosterSlide,
+  RecommendSlide,
+  MediaReview,
+  TextAvatar,
 };
