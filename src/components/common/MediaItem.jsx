@@ -30,10 +30,10 @@ const MediaItem = ({ media = {}, mediaType }) => {
     );
 
     if (mediaType === tmdbConfigs.mediaType.movie) {
-      setReleaseDate(media.release_date && media.release_date.split("-")[0]);
+      setReleaseDate(media.release_date && media.release_date?.split("-")[0]);
     } else {
       setReleaseDate(
-        media.first_air_date && media.first_air_date.split("-")[0]
+        media.first_air_date && media.first_air_date?.split("-")[0]
       );
     }
 

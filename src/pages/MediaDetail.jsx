@@ -75,7 +75,7 @@ const MediaDetail = () => {
       mediaType,
       mediaId,
     });
-    dispatch(setGlobalLoading(true));
+    dispatch(setGlobalLoading(false));
     if (response) {
       setMedia(response);
       setIsFavorite(response.isFavorite);
@@ -108,6 +108,7 @@ const MediaDetail = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     handleGetMedia();
   }, [mediaType, mediaId, dispatch]);
 

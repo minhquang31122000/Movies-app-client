@@ -44,7 +44,7 @@ const App = () => {
                         {route.element}
                       </PageWrapper>
                     ) : (
-                      <>{route.element}</>
+                      route.element
                     )
                   }
                 />
@@ -58,7 +58,7 @@ const App = () => {
                         {route.element}
                       </PageWrapper>
                     ) : (
-                      <>{route.element}</>
+                      route.element
                     )
                   }
                 />

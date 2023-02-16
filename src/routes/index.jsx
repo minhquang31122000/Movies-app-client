@@ -15,7 +15,7 @@ export const routeGen = {
   mediaList: (type) => `/${type}`,
   mediaDetail: (type, id) => `/${type}/${id}`,
   mediaSearch: "/search",
-  person: (id) => `person/${id}`,
+  person: (id) => `/person/${id}`,
   favoriteList: "/favorites",
   reviewList: "/reviews",
   passwordUpdate: "password-update",
@@ -30,7 +30,7 @@ const ROUTES = [
   {
     path: "/person/:personId",
     element: <PersonDetail />,
-    state: "person",
+    state: "person.detail",
   },
   {
     path: "/password-update",

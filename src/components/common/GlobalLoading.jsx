@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { LogoIcon } from "components/Icons";
 
 const GlobalLoading = () => {
-  const isShowGlobalLoading = useSelector((state) => state.isShowGlobalLoading);
+  const { isShowGlobalLoading } = useSelector((state) => state.globalLoading);
 
   const [isLoading, setIsLoading] = useState(true);
 
