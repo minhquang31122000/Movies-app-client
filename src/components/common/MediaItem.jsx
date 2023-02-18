@@ -22,10 +22,12 @@ const MediaItem = ({ media = {}, mediaType }) => {
 
   useEffect(() => {
     setTitle(media.title || media.name || media.Title);
-
     setPosterPath(
       tmdbConfigs.posterPath(
-        media.poster_path || media.backdrop_path || media.profile_path
+        media.poster_path ||
+          media.backdrop_path ||
+          media.profile_path ||
+          media.mediaPoster
       )
     );
 
