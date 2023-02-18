@@ -26,6 +26,8 @@ publicClient.interceptors.response.use(
     return response;
   },
   (error) => {
+    if (error.response.status === 500) window.location.replace("/");
+
     throw error.response.data;
   }
 );
