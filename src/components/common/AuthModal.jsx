@@ -3,8 +3,8 @@ import { Box, Modal } from "@mui/material";
 import { LogoIcon } from "components/Icons";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthModalOpen } from "redux/features/authModalSlice";
-import SigninForm from "./SigninForm";
 import { SignupForm } from ".";
+import SigninForm from "./SigninForm";
 
 const AuthModal = () => {
   const { isOpenAuthModal } = useSelector((state) => state.authModal);

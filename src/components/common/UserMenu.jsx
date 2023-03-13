@@ -41,7 +41,7 @@ const UserMenu = () => {
             {MENU_CONFIGS.user.map((item, index) => (
               <ListItemButton
                 key={index}
-                LinkComponent={Link}
+                component={Link}
                 to={item.path}
                 onClick={() => setAnchorEl(null)}
               >

@@ -29,8 +29,8 @@ privateClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    if ([500, 401].includes(error.response.status))
-      window.location.replace("/");
+    // if ([500, 401].includes(error.response.status))
+    //   window.location.replace("/");
 
     throw error?.response?.data;
   }
