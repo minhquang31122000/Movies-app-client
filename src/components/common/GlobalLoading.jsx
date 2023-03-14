@@ -9,12 +9,14 @@ const GlobalLoading = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (isShowGlobalLoading) {
+    if (isShowGlobalLoading && !isLoading) {
       setIsLoading(true);
-    } else {
-      setIsLoading(false);
+    } else if (!isShowGlobalLoading && isLoading) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
-  }, [isShowGlobalLoading]);
+  }, [isShowGlobalLoading, isLoading]);
 
   return (
     <>
