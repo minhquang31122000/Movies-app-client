@@ -1,25 +1,23 @@
-FROM node:20.18.0
+# Stage 1: Build the React app
+FROM node:20.18.0 AS build
 
-# Set the working directory
 WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY . .
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code to the working directory
-COPY . .
+# Use environment variables for the build
+ARG REACT_APP_API_SERVICE_URL
+ENV REACT_APP_API_SERVICE_URL=${REACT_APP_API_SERVICE_URL}
 
-# Build the React app
+# Build the app
 RUN npm run build
 
-# Install serve to serve the build folder
-RUN npm install -g serve
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Set the command to run the app
-CMD ["serve", "-s", "build"]
-
-# Expose the port the app runs on
-EXPOSE 5000
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
