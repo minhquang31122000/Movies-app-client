@@ -1,6 +1,7 @@
 version: '3'
 services:
-  movies-app-client:
+  movies-app-fe:
+    image: minhquang31122000/movies-app-fe:latest
     build:
       context: .
       dockerfile: Dockerfile
