@@ -16,6 +16,9 @@ jobs:
       - name: Create .env file
         run: |
           echo "REACT_APP_API_SERVICE_URL=${{ secrets.REACT_APP_API_SERVICE_URL }}" > .env
+      - name: check .env file
+        run: |
+          cat .env
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
