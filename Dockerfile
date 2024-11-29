@@ -2,10 +2,16 @@
 FROM node:20.18.0 AS build
 
 WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
 COPY . .
 
+COPY .env .env
+
 # Install dependencies
-RUN npm install
 
 ARG REACT_APP_API_SERVICE_URL
 
@@ -17,8 +23,8 @@ RUN npm run build
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/build /usr/share/nginx/html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
