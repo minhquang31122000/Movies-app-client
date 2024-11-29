@@ -19,7 +19,6 @@ jobs:
           pwd
           ls -la
           cat .env
-          fi
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
