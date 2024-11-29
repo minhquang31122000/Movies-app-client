@@ -24,8 +24,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t minhquang31122000/movie-app-be:latest .
-          docker push minhquang31122000/movie-app-be:latest
+          docker compose build
+          docker push minhquang31122000/movies-app-fe:latest
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
