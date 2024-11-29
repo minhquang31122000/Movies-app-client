@@ -10,6 +10,9 @@ RUN npm install
 COPY . ./   
 
 
+ARG REACT_APP_API_SERVICE_URL
+ENV REACT_APP_API_SERVICE_URL=${REACT_APP_API_SERVICE_URL}
+
 # Build the app
 RUN npm run build
 
