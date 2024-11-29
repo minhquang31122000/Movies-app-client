@@ -1,7 +1,7 @@
 import axios from "axios";
 import queryString from "query-string";
 
-const baseURL = process.env.REACT_APP_API_SERVICE_URL;
+const baseURL = "http://ubuntu@ec2-18-179-5-154.ap-northeast-1.compute.amazonaws.com:5000/api/v1";
 
 console.log({ baseURL });
 
