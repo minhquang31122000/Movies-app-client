@@ -9,12 +9,6 @@ RUN npm install
 
 COPY . ./   
 
-# Install dependencies
-
-ARG REACT_APP_API_SERVICE_URL
-
-# Sử dụng build argument làm biến môi trường
-ENV REACT_APP_API_SERVICE_URL=$REACT_APP_API_SERVICE_URL
 
 # Build the app
 RUN npm run build

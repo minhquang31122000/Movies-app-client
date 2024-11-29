@@ -16,9 +16,6 @@ jobs:
       - name: Create .env file
         run: |
           echo "REACT_APP_API_SERVICE_URL=${{ secrets.REACT_APP_API_SERVICE_URL }}" > .env
-          pwd
-          ls -la
-          cat .env
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
@@ -31,7 +28,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build --build-arg REACT_APP_API_SERVICE_URL=${{ secrets.REACT_APP_API_SERVICE_URL }}  -t minhquang31122000/movies-app-fe:latest .
+          docker build -t minhquang31122000/movies-app-fe:latest .
           docker push minhquang31122000/movies-app-fe:latest
 
       - name: Deploy to EC2
